@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Simple converter m x km</title>
+    </head>
+    <body>
+
+        <div id="app">
+            <h1>Simple converter m x km</h1>
+            Kilometer: <input type="text" v-model="km">
+            <br>
+            Meter: <input type="text" v-model="m">
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+        <script>
+        const app = new Vue({
+            el: "#app",
+            data: {
+                km: 0,
+                m: 0
+            },
+            watch: {
+                km: function (val) {
+                    this.km = val
+                    this.m = val * 1000
+                },
+                m: function (val) {
+                    this.m = val
+                    this.km = val / 1000
+                }
+            },
+        })
+        </script>
+    </body>
+</html>
